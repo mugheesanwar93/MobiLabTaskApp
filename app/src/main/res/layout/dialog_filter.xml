@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="dialog"
+            type="com.mobilabsolutions.mobilabtaskapp.viewmodel.DialogViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dialog"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/ten_dp">
+
+                <TextView
+                    android:id="@+id/tvFilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/selection_section"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="@dimen/thirty_sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_dp"
+                    android:layout_marginTop="@dimen/ten_dp"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ten_dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/ten_dp"
+                    android:paddingBottom="@dimen/ten_dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/section"
+                        android:textAlignment="center"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="@dimen/sixteen_sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/sort"
+                        android:textAlignment="center"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="@dimen/sixteen_sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/rgSection"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/rbHot"
+                            style="@style/RadioButtonBg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:checked="true"
+                            android:onClickListener="@{()-> dialog.onRadioChanged(rgSection, rbHot)}"
+                            android:text="@string/hot" />
+
+                        <RadioButton
+                            android:id="@+id/rbTop"
+                            style="@style/RadioButtonBg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClickListener="@{()-> dialog.onRadioChanged(rgSection, rbTop)}"
+                            android:text="@string/top" />
+
+                        <RadioButton
+                            android:id="@+id/rbUser"
+                            style="@style/RadioButtonBg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClickListener="@{()-> dialog.onRadioChanged(rgSection, rbUser)}"
+                            android:text="@string/user" />
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/rgSort"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/rbViral"
+                            style="@style/RadioButtonBg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:onClickListener="@{()-> dialog.onRadioChanged(rgSort, rbViral)}"
+                            android:text="@string/viral" />
+
+                        <RadioButton
+                            android:id="@+id/rbTop2"
+                            style="@style/RadioButtonBg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClickListener="@{()-> dialog.onRadioChanged(rgSort, rbTop2)}"
+                            android:text="@string/top" />
+
+                        <RadioButton
+                            android:id="@+id/rbTime"
+                            style="@style/RadioButtonBg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClickListener="@{()-> dialog.onRadioChanged(rgSort, rbTime)}"
+                            android:text="@string/time" />
+
+                        <RadioButton
+                            android:id="@+id/rbRising"
+                            style="@style/RadioButtonBg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClickListener="@{()-> dialog.onRadioChanged(rgSort, rbRising)}"
+                            android:text="@string/rising" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_dp"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/viral"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="@dimen/sixteen_sp"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/cbViral"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:buttonTint="@color/colorPrimary"
+                        android:gravity="end"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/one_dp"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/window"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="@dimen/sixteen_sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spWindow"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        android:entries="@array/window"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+                <!--android:onItemSelected="@{dialog::onItemSelected}"-->
+
+                <Button
+                    android:id="@+id/bFilter"
+                    style="@style/ButtonBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ten_dp"
+                    android:onClickListener="@{()-> dialog.onApplyPressed(rgSection, rgSort, cbViral, spWindow)}"
+                    android:text="@string/apply" />
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

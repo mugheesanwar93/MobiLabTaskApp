@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="gallery"
+            type="com.mobilabsolutions.mobilabtaskapp.viewmodel.GalleryItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClickListener="@{()->gallery.onImageClicked()}"
+        android:orientation="vertical"
+        android:padding="@dimen/five_dp">
+
+
+        <ImageView
+            android:id="@+id/ivImages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:imageUrl="@{gallery.imageUrl}" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/filterBg"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingTop="@dimen/ten_dp"
+            android:paddingBottom="@dimen/ten_dp"
+            android:text="@{gallery.title , default = THIS_IS_JUST_A_DEFAULT_GALLERY_TEXT}"
+            android:textAlignment="center"
+            android:textColor="@color/textColorPrimary"
+            android:textStyle="bold"
+            android:visibility="@{gallery.isDescription? View.GONE:View.VISIBLE}" />
+    </LinearLayout>
+</layout>
